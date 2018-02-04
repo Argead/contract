@@ -21,5 +21,8 @@ import contacts.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', contacts.views.ListContactView.as_view(), name='contacts-list'),
-    path('', contacts.views.CreateContactView.as_view(), name='contacts-new')
+    path('', contacts.views.CreateContactView.as_view(), name='contacts-new'),
+    path('edit/<pk:int>/', contacts.views.updateContactView.as_view(), name='contacts-edit'),
+    path('delete/<pk:int>/', contacts.views.DeleteContactView.as_view(), name='contacts-delete'),
+    path('/<pk:int>/', contacts.views.ContactView.as_view(), name='contacts-view')
 ]
